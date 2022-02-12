@@ -4,15 +4,9 @@ pagination:
   size: 1
   alias: article
 permalink: "{{ article.slug }}/"
-layout: "" # We use extends below so we don't need a layout
+
 ---
 
-{% extends "layouts/base.njk" %}
-{% block meta %}
-  <title>{{article.meta.title}}</title>
-  <meta name="description" content="{{article.meta.description}}">
-  <meta property="og:image" content="{{article.meta.image}}">
-{% endblock %}
 <article class="container">
   <header>
     {% if article.cover.data %}
