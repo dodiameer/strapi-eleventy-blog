@@ -9,6 +9,13 @@ const query = gql`
           title
           description
           slug
+          cover {
+            data {
+              attributes {
+                formats
+              }
+            }
+          }
           author {
             data {
               attributes {

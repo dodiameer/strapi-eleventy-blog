@@ -8,6 +8,9 @@ permalink: "{{ article.slug }}/"
 
 <article class="container">
   <header>
+    {% if article.cover.data %}
+      <img src="{{env.API_URL}}{{article.cover.data.attributes.formats.medium.url}}" alt="" class="w-full mt-6 mb-8 rounded">
+    {% endif %}
     <h1 class="title">{{ article.title }}</h1>
     <div class="space-y-3 mb-12">
       <p class="flex items-center gap-3 mb-6">
