@@ -3,7 +3,7 @@ const prepareBlocks = require("../_utils/prepareBlocks");
 
 const query = gql`
   {
-    articles {
+    articles(sort: "publishedAt:desc") {
       data {
         attributes {
           title

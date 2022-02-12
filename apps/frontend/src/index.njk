@@ -1,4 +1,26 @@
-<div class="container">
-  {%- from "macros/blocks.njk" import render_blocks -%}
-  {{ render_blocks(content, env) }}
+---
+pagination:
+  data: articles
+  size: 10
+---
+
+<div class="container space-y-6">
+  <section>
+    {%- from "macros/blocks.njk" import render_blocks -%}
+    {{ render_blocks(content, env) }}
+  </section>
+  <section>
+    <h1 class="title">Articles</h2>
+    <ul class="flex flex-col gap-4">
+      {% for item in pagination.items %}
+        <li>
+          <article class="flex flex-col gap-2 -mx-8 px-8 py-6 transition-colors hover:bg-blue-200">
+            <h3 class="font-bold text-lg font-serif">{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+            <a href="/{{item.slug}}" class="font-bold underline mt-4">Read more</a>
+          </article>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
 </div>

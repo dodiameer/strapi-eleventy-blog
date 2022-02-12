@@ -1,5 +1,5 @@
 {% macro render_blocks(items, env = {}) %}
-  <div class="prose lg:prose-lg prose-blue text-black prose-headings:font-serif">
+  <div class="prose lg:prose-lg prose-blue text-black prose-headings:font-serif pb-6">
     {%- for item in items -%}
       {%- if item.key == "media" -%}
         <img src="{{env.API_URL}}{{item.file.data.attributes.url}}" alt="{{item.file.data.attributes.alternativeText}}">
