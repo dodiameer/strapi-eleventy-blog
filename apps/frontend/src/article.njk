@@ -1,0 +1,29 @@
+---
+pagination:
+  data: articles
+  size: 1
+  alias: article
+permalink: "{{ article.slug }}/"
+---
+
+<article class="container">
+  <header>
+    <h1 class="title">{{ article.title }}</h1>
+    <div class="space-y-3 mb-12">
+      <p class="flex items-center gap-3">
+        {%- if article.author.data.attributes.avatar.data -%}
+          <img class="max-h-8" src="{{env.API_URL}}{{article.author.data.attributes.avatar.data.attributes.formats.thumbnail.url}}" alt="">
+        {%- endif -%}
+        <span>
+          {{ article.author.data.attributes.name }}
+        </span>
+      </p>
+      <p class="text-gray-600">Published at {{ article.publishedAt | date }}</p>
+      <p class="text-gray-600">{{ article.description }}</p>
+    </div>
+  </header>
+  <main>
+    {% from "macros/blocks.njk" import render_blocks %}
+    {{ render_blocks(article.blocks) }}
+  </main>
+</article>

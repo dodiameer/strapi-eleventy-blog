@@ -21,6 +21,9 @@ module.exports = (config) => {
   config.addShortcode("version", () => String(Date.now()));
   config.addFilter("json", (value) => JSON.stringify(value, null, 2));
   config.addFilter("markdown", (value) => markdownLib.render(value));
+  config.addFilter("date", (value) =>
+    new Date(value).toLocaleDateString("tr-TR")
+  );
 
   return {
     dir: {
