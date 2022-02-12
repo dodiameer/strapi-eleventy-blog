@@ -1,7 +1,7 @@
 ---
 pagination:
   data: articles
-  size: 10
+  size: 5
 ---
 
 <div class="container space-y-6 pb-6">
@@ -29,5 +29,20 @@ pagination:
         </li>
       {% endfor %}
     </ul>
+    <nav aria-label="Pages">
+      <ol class="flex items-center gap-4 flex-wrap mt-4">
+        {%- for pageEntry in pagination.pages %}
+          <li>
+            <a 
+              href="{{ pagination.hrefs[ loop.index0 ] }}"
+              {% if page.url == pagination.hrefs[ loop.index0 ] %}aria-current="page"{% endif %} 
+              class="{% if page.url == pagination.hrefs[ loop.index0 ] %}font-bold text-blue-600{% endif %} text-sm underline"
+            >
+              Page {{ loop.index }}
+            </a>
+          </li>
+        {%- endfor %}
+      </ol>
+    </nav>
   </section>
 </div>
