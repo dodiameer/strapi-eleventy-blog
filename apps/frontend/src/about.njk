@@ -1,0 +1,5 @@
+<div class="container">
+  <h1 class="title">{{ title }}</h1>
+  {%- from "macros/blocks.njk" import render_blocks -%}
+  {{ render_blocks(blocks, env) }}
+</div>

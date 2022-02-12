@@ -1,0 +1,20 @@
+{% macro render_blocks(items, env = {}) %}
+  <div class="prose lg:prose-lg prose-blue text-black prose-headings:font-serif">
+    {%- for item in items -%}
+      {%- if item.key == "media" -%}
+        <img src="{{env.API_URL}}{{item.file.data.attributes.url}}" alt="{{item.file.data.attributes.alternativeText}}">
+      {%- endif -%}
+      {%- if item.key == "richText" -%}
+        {{ item.body | markdown | safe }}
+      {%- endif -%}
+      {%- if item.key == "quote" -%}
+        <figure>
+          <blockquote>
+            <p>{{ item.body }}</p>
+          </blockquote>
+          <figcaption>— {{item.title}}</figcaption>
+        </figure>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+{% endmacro %}

@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  max-width: 80ch;
+}
+
+@layer utilities {
+  .title {
+    @apply font-bold text-4xl lg:text-5xl font-serif mb-8;
+  }
+}
