@@ -17,6 +17,10 @@ pagination:
           <article class="flex flex-col gap-2 -mx-8 px-8 py-6 transition-colors hover:bg-blue-200">
             <h3 class="font-bold text-lg font-serif">{{ item.title }}</h3>
             <p>{{ item.description }}</p>
+            <p class="text-sm text-gray-600">
+              Posted by {{item.author.data.attributes.name}} 
+              under {{ item.category.data.attributes.name }}
+            </p>
             <a href="/{{item.slug}}" class="font-bold underline mt-4">Read more</a>
           </article>
         </li>

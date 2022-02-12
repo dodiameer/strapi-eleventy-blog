@@ -10,9 +10,9 @@ permalink: "{{ article.slug }}/"
   <header>
     <h1 class="title">{{ article.title }}</h1>
     <div class="space-y-3 mb-12">
-      <p class="flex items-center gap-3">
+      <p class="flex items-center gap-3 mb-6">
         {%- if article.author.data.attributes.avatar.data -%}
-          <img class="max-h-8" src="{{env.API_URL}}{{article.author.data.attributes.avatar.data.attributes.formats.thumbnail.url}}" alt="">
+          <img class="max-h-12 rounded-full" src="{{env.API_URL}}{{article.author.data.attributes.avatar.data.attributes.formats.thumbnail.url}}" alt="">
         {%- endif -%}
         <span>
           {{ article.author.data.attributes.name }}
