@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <title>
-      {{ meta.title }}{{" - " if meta.title}}{{ global.siteName }}
-    </title>
-    <meta name="description" content="{{ meta.description if meta.description else global.siteDescription  }}"/>
+    {% block meta %}
+      <title>
+        {{ meta.title }}{{" - " if meta.title}}{{ global.siteName }}
+      </title>
+      <meta name="description" content="{{ meta.description if meta.description else global.siteDescription  }}"/>
+    {% endblock %}
     <link rel="stylesheet" href="/static/style.css?v={% version %}">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:wght@700&display=swap" rel="stylesheet">
   </head>

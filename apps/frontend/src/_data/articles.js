@@ -82,6 +82,13 @@ module.exports = async ({ env }) => {
     return {
       ...article.attributes,
       ...prepareBlocks(article.attributes.blocks),
+      meta: {
+        title: article.attributes.title,
+        description: article.attributes.description,
+        image:
+          env.API_URL +
+          article.attributes.cover?.data?.attributes?.formats?.small,
+      },
     };
   });
 
